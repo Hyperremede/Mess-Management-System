@@ -4,7 +4,7 @@
 <!--header end-->
 <!--sidebar start-->
 <?php include 'inc/navigation.php'; ?>
-<?php include '../classes/Addborder.php'; ?>
+<?php include '../classes/Fixedcost.php'; ?>
 <?php
     $Fixedcost = new Fixedcost();
 
