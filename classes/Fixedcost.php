@@ -51,7 +51,7 @@ class Fixedcost{
 			return $msg;
 		}else{
 			$checkQuery = 'SELECT month_of,year_of FROM mms_fixed_cost WHERE month_of = "'.$month_of.'" AND year_of = "'.$year_of.'"';
-			$borderinsert = $this->db->select($query);
+			$borderinsert = $this->db->select($checkQuery);
 			if ($borderinsert) {
 				$msg = " <span class='text-success'>Fixed Cost For Month ".$this->GetMonthName($month_of).", ".$year_of." already been added.</span> ";
 				return $msg;
