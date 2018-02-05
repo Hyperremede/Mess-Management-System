@@ -5,7 +5,7 @@
 <!--sidebar start-->
 <?php include 'inc/navigation.php'; ?>
 <?php include '../classes/Regularcost.php'; ?>
-<?php
+<?php 
     $regCost = new Regularcost();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) ) {
@@ -37,7 +37,7 @@
                            
                             <div class="form">
                                 <form class="cmxform form-horizontal " id="signupForm"  action="" novalidate="novalidate" method="post">
-
+                                    
                                     <div class="form-group ">
                                         <label for="title" class="control-label col-lg-3">Title</label>
                                         <div class="col-lg-6">
@@ -55,7 +55,7 @@
                                     <div class="form-group ">
                                         <label for="amount" class="control-label col-lg-3">Amount</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control " min="0" id="amount" name="amount" type="number">
+                                            <input class="form-control" min="1" id="amount" name="amount" type="number">
                                         </div>
                                     </div>
 

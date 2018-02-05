@@ -35,14 +35,14 @@ class Adminlogin{
 			$loginmsg = "Username Or Password must not be empty !";
 			return $loginmsg;
 		}else{
-			$query = " SELECT * FROM mms_tbl_admin WHERE adminUser = '$adminUser' AND adminPass = '$adminPass' ";
+			$query = " SELECT * FROM mms_borders WHERE user_name = '$adminUser' AND password = '$adminPass' ";
 			$result = $this->db->select($query);
 			if ($result != false) {
 				$value = $result->fetch_assoc();
 				Session::set("adminlogin", true);
-				Session::set("adminId", $value['adminId']);
-				Session::set("adminUser", $value['adminUser']);
-				Session::set("adminName", $value['adminName']);
+				Session::set("adminId", $value['id']);
+				Session::set("adminUser", $value['user_name']);
+				Session::set("adminName", $value['full_name']);
 				header("Location:dashbord.php");
 			}else{
 				$loginmsg = "Username or Password not match ";
@@ -55,3 +55,4 @@ class Adminlogin{
 }
 
 ?>
+

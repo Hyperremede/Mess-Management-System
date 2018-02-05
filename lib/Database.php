@@ -75,3 +75,6 @@ public function insert($query){
  }
  
 }
+
+
+
