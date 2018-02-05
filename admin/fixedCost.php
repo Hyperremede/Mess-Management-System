@@ -6,10 +6,10 @@
 <?php include 'inc/navigation.php'; ?>
 <?php include '../classes/Addborder.php'; ?>
 <?php
-    $addborder = new Addborder();
+    $Fixedcost = new Fixedcost();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) ) {
-        $insertBorder = $addborder->borderInsert($_POST);
+        $fixedCostInsert = $Fixedcost->fixedCostInsert($_POST);
     }
 ?>
 
@@ -23,8 +23,8 @@
                     <section class="panel">
                         <header class="panel-heading">
                              <?php
-                                    if (isset($insertBorder)) {
-                                       echo $insertBorder;
+                                    if (isset($fixedCostInsert)) {
+                                       echo $fixedCostInsert;
                                     }
                                 ?> 
                             <span class="tools pull-right">
@@ -41,68 +41,68 @@
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Home Rent</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="homeRent" name="homeRent" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="HomeRent" name="HomeRent" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Electricity</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Electricity" name="Electricity" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="ElectricityBill" name="ElectricityBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Internet</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Internet" name="Internet" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="InternetBill" name="InternetBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Dust</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Dust" name="Dust" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="DustBill" name="DustBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">House Maid</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="HouseMaid" name="HouseMaid" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="HouseMaidBill" name="HouseMaidBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Gas</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Gas" name="Gas" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="GasBill" name="GasBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Water</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Water" name="Water" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="WaterBill" name="WaterBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Paper</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Paper" name="Paper" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="PaperBill" name="PaperBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Cable Line</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Cable" name="Cable" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="CableLineBill" name="CableLineBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Service Charge</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Service" name="Service" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="ServiceBill" name="ServiceBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Extra Charge</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="Extra" name="Extra" type="number" min="0" oninput="validity.valid||(value='');">
+                                            <input class=" form-control" id="ExtraBill" name="ExtraBill" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                      <div class="form-group ">

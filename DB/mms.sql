@@ -81,6 +81,39 @@ CREATE TABLE `mms_tbl_admin` (
   `level` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE `mms`.`mms_fixed_cost` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `home_rent` INT NULL DEFAULT 0,
+  `electricity_bill` INT NULL DEFAULT 0,
+  `internet_bill` INT NULL DEFAULT 0,
+  `dust_bill` INT NULL DEFAULT 0,
+  `house_maid_bill` INT NULL DEFAULT 0,
+  `gas_bill` INT NULL DEFAULT 0,
+  `cable_line_bill` INT NULL DEFAULT 0,
+  `service_bill` INT NULL DEFAULT 0,
+  `extra_bill` INT NULL DEFAULT 0,
+  `extra_desc` VARCHAR(45) NULL DEFAULT 'N/A',
+  `month_of` INT NULL DEFAULT 0,
+  `year_of` INT NULL DEFAULT 0,
+  `entry_by` INT NOT NULL,
+  `approve_by` INT NOT NULL,
+  `entry_date` TIMESTAMP(6) NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  INDEX `entry_by_fk_idx` (`entry_by` ASC),
+  INDEX `approve_by_fk_idx` (`approve_by` ASC),
+  CONSTRAINT `entry_by_fk`
+    FOREIGN KEY (`entry_by`)
+    REFERENCES `mms`.`mms_borders` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `approve_by_fk`
+    FOREIGN KEY (`approve_by`)
+    REFERENCES `mms`.`mms_borders` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
 --
 -- Dumping data for table `mms_tbl_admin`
 --
