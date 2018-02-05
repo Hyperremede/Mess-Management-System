@@ -24,11 +24,12 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Regular Cost</span>
+                        <span>Cost</span>
                     </a>
                     <ul class="sub">
                         <li><a href="regularcost.php">Regular Cost</a></li>
                         <li><a href="manageBorder.php">Manage Cost</a></li>
+                        <li><a href="fixedCost.php">Fixed Cost</a></li>
                     </ul>
                 </li>
 

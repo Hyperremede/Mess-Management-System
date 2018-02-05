@@ -4,12 +4,12 @@
 <!--header end-->
 <!--sidebar start-->
 <?php include 'inc/navigation.php'; ?>
-<?php include '../classes/Regularcost.php'; ?>
+<?php include '../classes/Addborder.php'; ?>
 <?php
-    $regCost = new Regularcost();
+    $addborder = new Addborder();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) ) {
-        $insertRegCost = $regCost->regularCostInsert($_POST);
+        $insertBorder = $addborder->borderInsert($_POST);
     }
 ?>
 
@@ -23,8 +23,8 @@
                     <section class="panel">
                         <header class="panel-heading">
                              <?php
-                                    if (isset($insertRegCost)) {
-                                       echo $insertRegCost;
+                                    if (isset($insertBorder)) {
+                                       echo $insertBorder;
                                     }
                                 ?> 
                             <span class="tools pull-right">
@@ -39,26 +39,78 @@
                                 <form class="cmxform form-horizontal " id="signupForm"  action="" novalidate="novalidate" method="post">
 
                                     <div class="form-group ">
-                                        <label for="title" class="control-label col-lg-3">Title</label>
-                                        <div class="col-lg-6">
-                                            <input class=" form-control" id="title" name="title" type="text">
+                                        <label for="full_name" class="control-label col-lg-6">Home Rent</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Electricity</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Internet</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Dust</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">House Maid</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Gas</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Water</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
-                                        <label for="descp" class="control-label col-lg-3">Description</label>
-                                        <div class="col-lg-6">
-                                            <textarea style="resize: none;" class=" form-control"  name="descp" id="descp" ></textarea>
+                                        <label for="full_name" class="control-label col-lg-6">Paper</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
                                         </div>
                                     </div>
-
                                     <div class="form-group ">
-                                        <label for="amount" class="control-label col-lg-3">Amount</label>
-                                        <div class="col-lg-6">
-                                            <input class="form-control " min="0" id="amount" name="amount" type="number">
+                                        <label for="full_name" class="control-label col-lg-6">Cable Line</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
                                         </div>
                                     </div>
-
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Service Charge</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-6">Extra Charge</label>
+                                        <div class="col-lg-3">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
+                                     <div class="form-group ">
+                                        <label for="full_name" class="control-label col-lg-3">Extra Charge Description</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        </div>
+                                    </div>
                                     <div class="form-group ">
                                         <label for="month_of" class="control-label col-lg-3">Month Of Type</label>
                                         <div class="col-lg-6">
@@ -79,10 +131,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
-                                    
-                                   
-
                                     <div class="form-group ">
                                         <label for="year_of" class="control-label col-lg-3">Year Of</label>
                                         <div class="col-lg-6">
@@ -97,11 +145,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-                        
-                                   
-                                    
-
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
                                             <button class="btn btn-primary" type="submit" name="submit">Save</button>
