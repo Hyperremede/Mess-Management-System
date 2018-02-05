@@ -39,76 +39,76 @@
                                 <form class="cmxform form-horizontal " id="signupForm"  action="" novalidate="novalidate" method="post">
 
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Home Rent</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Home Rent</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="homeRent" name="homeRent" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Electricity</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Electricity</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Electricity" name="Electricity" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Internet</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Internet</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Internet" name="Internet" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Dust</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Dust</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Dust" name="Dust" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">House Maid</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">House Maid</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="HouseMaid" name="HouseMaid" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Gas</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Gas</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Gas" name="Gas" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Water</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Water</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Water" name="Water" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Paper</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Paper</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Paper" name="Paper" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Cable Line</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Cable Line</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Cable" name="Cable" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Service Charge</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Service Charge</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Service" name="Service" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="full_name" class="control-label col-lg-6">Extra Charge</label>
-                                        <div class="col-lg-3">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                        <label for="full_name" class="control-label col-lg-3">Extra Charge</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="Extra" name="Extra" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                      <div class="form-group ">
                                         <label for="full_name" class="control-label col-lg-3">Extra Charge Description</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="cost" name="full_name" type="text">
+                                            <input class=" form-control" id="ExtraDesc" name="ExtraDesc" type="number" min="0" oninput="validity.valid||(value='');">
                                         </div>
                                     </div>
                                     <div class="form-group ">
