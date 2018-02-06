@@ -113,6 +113,24 @@ CREATE TABLE `mms`.`mms_fixed_cost` (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
+CREATE TABLE `mms`.`mms_border_payable` (
+  `id` INT NOT NULL,
+  `border_id` INT NULL,
+  `paid_amount` INT NULL,
+  `month_of` INT NULL,
+  `year_of` INT NULL,
+  `entry_date` TIMESTAMP(6) NULL DEFAULT CURRENT_TIMESTAMP,
+  `entry_by` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `brdeerid-FK_idx` (`border_id` ASC),
+  CONSTRAINT `brdeerid-FK`
+    FOREIGN KEY (`border_id`)
+    REFERENCES `mms`.`mms_borders` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+ALTER TABLE `mms`.`mms_borders` 
+ADD COLUMN `carry_forward_balance` INT NULL DEFAULT 0 AFTER `last_login`;
 
 --
 -- Dumping data for table `mms_tbl_admin`
