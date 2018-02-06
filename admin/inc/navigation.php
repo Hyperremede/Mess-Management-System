@@ -28,7 +28,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="regularcost.php">Regular Cost</a></li>
-                        <li><a href="manageBorder.php">Manage Cost</a></li>
+                        <li><a href="manageCost.php">Manage Cost</a></li>
                         <li><a href="fixedCost.php">Fixed Cost</a></li>
                     </ul>
                 </li>

@@ -118,6 +118,20 @@ class Addborder{
 		}
 
 
+		public function delBorderById($id){
+			$delquery = "DELETE FROM mms_borders WHERE id = '$id'  ";
+			$deldata = $this->db->delete($delquery);
+			if ($deldata) {
+				$msg =" <span class='success'>Border Deleted Sucessfully</span> ";
+				return $msg;
+			}else{
+				$msg =" <span class='error'>Border Not Deleted ! </span> ";
+				return $msg;
+
+			}
+		}
+
+
 }
 
 ?>
