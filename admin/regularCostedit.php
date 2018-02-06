@@ -8,8 +8,16 @@
 <?php 
     $regCost = new Regularcost();
 
+    if (!isset($_GET['regcostid']) || $_GET['regcostid'] == NULL) {
+        echo " <script>window.location = 'productlist.php';</script> ";
+    }else{
+        $id = preg_replace('/[^-a-zA-Z0-9_]/', '', $_GET['regcostid']);
+    }
+
+
+ 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) ) {
-        $insertRegCost = $regCost->regularCostInsert($_POST);
+        $updateregCost = $regCost->regCostUpdate($_POST, $id);
     }
 ?>
 
@@ -23,8 +31,8 @@
                     <section class="panel">
                         <header class="panel-heading">
                              <?php
-                                    if (isset($insertRegCost)) {
-                                       echo $insertRegCost;
+                                    if (isset($updateregCost)) {
+                                       echo $updateregCost;
                                     }
                                 ?> 
                             <span class="tools pull-right">
@@ -36,26 +44,32 @@
                         <div class="panel-body">
                            
                             <div class="form">
+                                <?php
+                                    $regCost = $regCost->getCostById($id);
+                                    if ($regCost) {
+                                        while ($value = $regCost->fetch_assoc()) {
+                                            
+                                    ?> 
                                 <form class="cmxform form-horizontal " id="signupForm"  action="" novalidate="novalidate" method="post">
                                     
                                     <div class="form-group ">
                                         <label for="title" class="control-label col-lg-3">Title</label>
                                         <div class="col-lg-6">
-                                            <input class=" form-control" id="title" name="title" type="text">
+                                            <input class=" form-control" id="title" value="<?php echo $value['title']?>" name="title" type="text">
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="descp" class="control-label col-lg-3">Description</label>
                                         <div class="col-lg-6">
-                                            <textarea style="resize: none;" class=" form-control"  name="descp" id="descp" ></textarea>
+                                            <textarea style="resize: none;" class=" form-control"  name="descp" id="descp" >  <?php echo $value['descp'] ?> </textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group ">
                                         <label for="amount" class="control-label col-lg-3">Amount</label>
                                         <div class="col-lg-6">
-                                            <input class="form-control" min="1" id="amount" name="amount" type="number">
+                                            <input class="form-control" min="1"  value="<?php echo $value['amount']?>"  id="amount" name="amount" type="number">
                                         </div>
                                     </div>
 
@@ -109,6 +123,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <?php } } ?>
                             </div>
                            
                         </div>

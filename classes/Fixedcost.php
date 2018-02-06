@@ -51,16 +51,16 @@ class Fixedcost{
 			return $msg;
 		}else{
 			$checkQuery = 'SELECT month_of,year_of FROM mms_fixed_cost WHERE month_of = "'.$month_of.'" AND year_of = "'.$year_of.'"';
-			$borderinsert = $this->db->select($query);
-			if ($borderinsert) {
+			$fixedCostInsert = $this->db->select($checkQuery);
+			if ($fixedCostInsert) {
 				$msg = " <span class='text-success'>Fixed Cost For Month ".$this->GetMonthName($month_of).", ".$year_of." already been added.</span> ";
 				return $msg;
 			}else{
-				$query = "INSERT INTO mms_fixed_cost(home_rent, electricity_bill, internet_bill, dust_bill, house_maid_bill, gas_bill, cable_line_bill,service_bill,extra_bill,extra_desc,month_of,year_of,entry_by) VALUES('$full_name','$user_name','$password','$user_type','$join_date','$last_login','$is_active')";
+				$query = "INSERT INTO mms_fixed_cost(home_rent, electricity_bill, internet_bill, dust_bill, house_maid_bill, gas_bill, cable_line_bill,service_bill,extra_bill,extra_desc,month_of,year_of,entry_by) VALUES('$HomeRent','$ElectricityBill','$InternetBill','$DustBill','$HouseMaidBill','$GasBill','$CableLineBill','$ServiceBill','$ExtraBill','$ExtraDesc','$month_of','$year_of')";
 		    	
-		    	$borderinsert = $this->db->insert($query);
+		    	$fixedCostInsert = $this->db->insert($query);
 				
-				if ($borderinsert) {
+				if ($fixedCostInsert) {
 					$msg = " <span class='text-success'>Fixed Cost Insert Sucessfully For Month ".$this->GetMonthName($month_of).", ".$year_of."</span> ";
 					return $msg;
 				}else{
@@ -71,7 +71,7 @@ class Fixedcost{
 		}
 	}
 
-	function GetMonthName($monthNumber){
+	public	function GetMonthName($monthNumber){
 		$months = array (1=>'January',2=>'February',3=>'March',4=>'April',5=>'May',6=>'June',7=>'July',8=>'Auguest',9=>'September',10=>'October',11=>'November',12=>'December');
 		return $months[(int)$monthNumber];
 	}
@@ -132,3 +132,5 @@ class Fixedcost{
 }
 
 ?>
+
+

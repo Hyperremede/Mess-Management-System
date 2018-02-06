@@ -4,7 +4,8 @@
 <!--header end-->
 <!--sidebar start-->
 <?php include 'inc/navigation.php'; ?>
-<?php include '../classes/Addborder.php'; ?>
+
+<?php include '../classes/Fixedcost.php'; ?>
 <?php
     $Fixedcost = new Fixedcost();
 
@@ -113,7 +114,7 @@
                                     </div>
                                     <div class="form-group ">
                                         <label for="month_of" class="control-label col-lg-3">Month Of Type</label>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 ">
                                            <select class="form-control" name="month_of" id="month_of">
                                                 <option>--Select status--</option>
                                                 <option value="1">January</option>

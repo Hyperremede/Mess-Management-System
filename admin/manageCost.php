@@ -4,15 +4,16 @@
 <!--header end-->
 <!--sidebar start-->
 <?php include 'inc/navigation.php'; ?>
-<?php include '../classes/Addborder.php'; ?>
-
+<?php include '../classes/Regularcost.php'; ?>
 <?php
-  $addborder = new Addborder();
-if (isset($_GET['delborder'])) {
-  $id = preg_replace('/[^-a-zA-Z0-9_]/', '', $_GET['delborder']);
-  $delborder = $addborder->delBorderById($id);
+     $regularcost = new Regularcost();
+
+      if (isset($_GET['delcost'])) {
+      $id = preg_replace('/[^-a-zA-Z0-9_]/', '', $_GET['delcost']);
+      $delregularcost = $regularcost->delRegCostById($id);
 }
 ?>
+
 
 <!--sidebar end-->
 <!--main content start-->
@@ -21,14 +22,19 @@ if (isset($_GET['delborder'])) {
         <div class="table-agile-info">
  <div class="panel panel-default">
     <div class="panel-heading">
-     Basic table
+
+     <h2>Manage Cost</h2> <br>
+     
     </div>
-    <?php
-            if (isset($delborder)) {
-               echo $delborder;
-            }
-      ?> 
+    
     <div>
+      <h5 class="text-center">
+      <?php
+          if (isset($delregularcost)) {
+             echo $delregularcost;
+          }
+      ?> 
+      </h5>
       <table class="table" ui-jq="footable" ui-options='{
         "paging": {
           "enabled": true
@@ -42,37 +48,37 @@ if (isset($_GET['delborder'])) {
         <thead>
           <tr>
             <th data-breakpoints="xs">ID</th>
-            <th>Full Name</th>
-            <th>User Name</th>
-            <th>User Type</th>
-            <th>Join Date</th>
-            <th>Last Date</th>
-            <th>Is Active</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Entry Date</th>
+            <th>Month Of</th>
+            <th>Year Of</th>
             <th>Action</th>
            
           </tr>
         </thead>
         <tbody>
             <?php
-                    $getborder = $addborder->getAllBorder();
-                    if ($getborder) {
+                    $regularcost = $regularcost->getAllRegularCost();
+                    if ($regularcost) {
                         $i = 0;
-                        while ($result = $getborder->fetch_assoc()) {
+                        while ($result = $regularcost->fetch_assoc()) {
                             $i++;
                         
                     
                 ?>
           <tr data-expanded="true">
             <td><?php echo $i;?></td>
-            <td><?php echo $result['full_name'];?></td>
-            <td><?php echo $result['user_name'];?></td>
-            <td><?php echo $result['user_type'];?></td>
+            <td><?php echo $result['title'];?></td>
+            <td><?php echo $result['descp'];?></td>
+            <td><?php echo $result['amount'];?></td>
             
-            <td><?php echo $result['join_date'];?></td>
-            <td><?php echo $result['last_login'];?></td>
-            <td><?php echo $result['is_active'];?></td>
+            <td><?php echo $result['entry_date'];?></td>
+            <td><?php echo $result['month_of'];?></td>
+            <td><?php echo $result['year_of'];?></td>
             <td>
-                <a href="borderedit.php?borderid=<?php echo $result['id']?>">Edit</a> || <a onclick="return confirm('Are You sure to Delete')" href="?delborder=<?php echo $result['id']?>">Delete</a>
+                <a href="regularCostedit.php?regcostid=<?php echo $result['id']?>">Edit</a> || <a onclick="return confirm('Are You sure to Delete')" href="?delcost=<?php echo $result['id']?>">Delete</a>
             </td>
           </tr>
           <?php } } ?>

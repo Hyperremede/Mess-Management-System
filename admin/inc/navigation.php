@@ -4,7 +4,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="index.html">
+                    <a class="active" href="index.php">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -28,7 +28,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="regularcost.php">Regular Cost</a></li>
-                        <li><a href="manageBorder.php">Manage Cost</a></li>
+                        <li><a href="manageCost.php">Manage Cost</a></li>
                         <li><a href="fixedCost.php">Fixed Cost</a></li>
                     </ul>
                 </li>
