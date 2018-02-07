@@ -78,18 +78,18 @@
                                         <div class="col-lg-6">
                                            <select class="form-control" name="month_of" id="month_of">
                                                 <option>--Select status--</option>
-                                                <option value="1">January</option>
-                                                <option value="2">Februaru</option>
-                                                <option value="3">March</option>
-                                                <option value="4">April</option>
-                                                <option value="5">May</option>
-                                                <option value="6">June</option>
-                                                <option value="7">July</option>
-                                                <option value="8">Auguest</option>
-                                                <option value="9">September</option>
-                                                <option value="10">October</option>
-                                                <option value="11">November</option>
-                                                <option value="12">December</option>
+                                                <option value="1" <?php echo ($value['month_of'] == '1') ? 'selected':'' ?>>January</option>
+                                                <option value="2" <?php echo ($value['month_of'] == '2') ? 'selected':'' ?>>February</option>
+                                                <option value="3" <?php echo ($value['month_of'] == '3') ? 'selected':'' ?>>March</option>
+                                                <option value="4" <?php echo ($value['month_of'] == '4') ? 'selected':'' ?>>April</option>
+                                                <option value="5" <?php echo ($value['month_of'] == '5') ? 'selected':'' ?>>May</option>
+                                                <option value="6" <?php echo ($value['month_of'] == '6') ? 'selected':'' ?>>June</option>
+                                                <option value="7" <?php echo ($value['month_of'] == '7') ? 'selected':'' ?>>July</option>
+                                                <option value="8" <?php echo ($value['month_of'] == '8') ? 'selected':'' ?>>Auguest</option>
+                                                <option value="9" <?php echo ($value['month_of'] == '9') ? 'selected':'' ?>>September</option>
+                                                <option value="10" <?php echo ($value['month_of'] == '10') ? 'selected':'' ?>>October</option>
+                                                <option value="11" <?php echo ($value['month_of'] == '11') ? 'selected':'' ?>>November</option>
+                                                <option value="12" <?php echo ($value['month_of'] == '12') ? 'selected':'' ?>>December</option>
                                             </select>
                                         </div>
                                     </div>
@@ -102,12 +102,12 @@
                                         <div class="col-lg-6">
                                            <select class="form-control" name="year_of" id="year_of">
                                                 <option>--Select status--</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2017">2017</option>
-                                                <option value="2018">2018</option>
-                                                <option value="2019">2019</option>
-                                                <option value="2020">2020</option>
+                                                <option value="2015" <?php echo ($value['year_of'] == '2015') ? 'selected':'' ?>>2015</option>
+                                                <option value="2016" <?php echo ($value['year_of'] == '2016') ? 'selected':'' ?>>2016</option>
+                                                <option value="2017" <?php echo ($value['year_of'] == '2017') ? 'selected':'' ?>>2017</option>
+                                                <option value="2018" <?php echo ($value['year_of'] == '2018') ? 'selected':'' ?>>2018</option>
+                                                <option value="2019" <?php echo ($value['year_of'] == '2019') ? 'selected':'' ?>>2019</option>
+                                                <option value="2020" <?php echo ($value['year_of'] == '2020') ? 'selected':'' ?>>2020</option>
                                             </select>
                                         </div>
                                     </div>

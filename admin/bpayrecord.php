@@ -140,7 +140,7 @@
 </section>
 <?php include 'inc/footer.php'; ?>
 <script type="text/javascript">
-    function queryDB(request, response) {
+    function queryDB() {
 
         var borderid = $("#border").val();
         var month_of = $("#month_of").val();
