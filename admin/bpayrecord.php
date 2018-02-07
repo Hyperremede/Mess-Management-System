@@ -16,7 +16,9 @@
 ?>
 
 
-
+<style>
+    .searchPayment{margin-top: 20px;}
+</style>
 
 <!--sidebar end-->
 <!--main content start-->
@@ -93,8 +95,8 @@
                                     </div>
 
                                 <div class="form-group">
-                                    <div class="col-lg-offset-3 col-lg-9">
-                                        <button class="btn btn-primary" type="button" name="button" id="searchPayment" onclick="queryDB()">Search</button>
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button class="btn btn-primary btn-block searchPayment" type="button" name="button" id="searchPayment" onclick="queryDB()">Search</button>
                                     </div>
                                 </div>
                             </div>
