@@ -35,7 +35,6 @@ class Bpay{
 			if ($border == "" || $amount == "" || $amount == "" || $month_of == "" || $year_of == "" ) {
 		    	$msg = "<span class='text-danger' >Fields must not be empty !</span>";
 				return $msg;
-				
 			}else{
 		    	
 		    	$query = " INSERT INTO mms_border_payable(border_id, paid_amount, month_of,year_of,entry_by) VALUES('$border','$amount','$month_of','$year_of','".Session::get("adminId")."')";
@@ -74,7 +73,7 @@ class Bpay{
 		$month 		= mysqli_real_escape_string($this->db->link, $month_of);
 		$year 		= mysqli_real_escape_string($this->db->link, $year_of);
 
-		$query = "SELECT * FROM mms_border_payable WHERE border_id = '".$border_id."' AND month_of = '".$month."' AND year_of =  '".$year."' ORDER BY id ASC";
+		$query = "SELECT * FROM mms_border_payable WHERE border_id = '3' AND month_of = '".$month."' AND year_of =  '".$year."' ORDER BY id ASC";
 		$result = $this->db->select($query);
 		return $result;
 	}
