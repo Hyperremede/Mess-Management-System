@@ -41,8 +41,8 @@
                             
                             <div class="form">
                                 <div class="form-group ">
-                                    <label for="border" class="control-label col-lg-3">Select Border</label>
-                                    <div class="col-lg-6">
+                                    <label for="border" class="control-label col-lg-2">Select Border</label>
+                                    <div class="col-lg-2">
                                        <select class="form-control" name="border" id="border">
                                             <option>--Select Border--</option>
                                             <?php 
@@ -57,8 +57,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                        <label for="month_of" class="control-label col-lg-3">Month Of</label>
-                                        <div class="col-lg-6">
+                                        <label for="month_of" class="control-label col-lg-2">Month Of</label>
+                                        <div class="col-lg-2">
                                            <select class="form-control" name="month_of" id="month_of">
                                                 <option>--Select Month--</option>
                                                 <option value="1"  <?php echo (date('m') == '01') ? 'selected':'' ?>>January</option>
@@ -78,8 +78,8 @@
                                     </div>
                                     
                                     <div class="form-group ">
-                                        <label for="year_of" class="control-label col-lg-3">Year Of</label>
-                                        <div class="col-lg-6">
+                                        <label for="year_of" class="control-label col-lg-2">Year Of</label>
+                                        <div class="col-lg-2">
                                            <select class="form-control" name="year_of" id="year_of">
                                                 <option>--Select status--</option>
                                                 <option value="2018" <?php echo (date('Y') == '2018') ? 'selected':'' ?>>2018</option>
@@ -93,7 +93,7 @@
                                     </div>
 
                                 <div class="form-group">
-                                    <div class="col-lg-offset-3 col-lg-6">
+                                    <div class="col-lg-offset-3 col-lg-9">
                                         <button class="btn btn-primary" type="button" name="button" id="searchPayment" onclick="queryDB()">Search</button>
                                     </div>
                                 </div>
