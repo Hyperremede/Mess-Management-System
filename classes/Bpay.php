@@ -24,16 +24,10 @@ class Bpay{
 
 	public function BpayInsert($data){
 
-		// $title 		= $this->fm->validation($data['title']);
-		// $descp 		= $this->fm->validation($data['descp']);
-		// $amount 	= $this->fm->validation($data['amount']);
-		// $month_of 	= $this->fm->validation($data['month_of']);
-		// $year_of 	= $this->fm->validation($data['year_of']);
-		
 		if(Session::get("adminlogin")){
-			$title 		= mysqli_real_escape_string($this->db->link, $data['title']);
-			$descp 		= mysqli_real_escape_string($this->db->link, $data['descp']);
-			$amount 	= mysqli_real_escape_string($this->db->link, $data['amount']);
+			
+			$title 		= mysqli_real_escape_string($this->db->link, $data['border']);
+			$descp 		= mysqli_real_escape_string($this->db->link, $data['amount']);
 			$month_of 	= mysqli_real_escape_string($this->db->link, $data['month_of']);
 			$year_of 	= mysqli_real_escape_string($this->db->link, $data['year_of']);
 
