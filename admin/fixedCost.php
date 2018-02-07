@@ -118,7 +118,7 @@
                                            <select class="form-control" name="month_of" id="month_of">
                                                 <option>--Select status--</option>
                                                 <option value="1">January</option>
-                                                <option value="2">Februaru</option>
+                                                <option value="2">February</option>
                                                 <option value="3">March</option>
                                                 <option value="4">April</option>
                                                 <option value="5">May</option>

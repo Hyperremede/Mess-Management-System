@@ -46,6 +46,7 @@ class Fixedcost{
 		$year_of 			= mysqli_real_escape_string($this->db->link, $data['year_of']);
 
 
+
 		if($month_of == "" || $year_of == ""){
 			$msg = "<span class='text-danger' >Month Or Year can't be empty !!!</span>";
 			return $msg;
@@ -53,10 +54,10 @@ class Fixedcost{
 			$checkQuery = 'SELECT month_of,year_of FROM mms_fixed_cost WHERE month_of = "'.$month_of.'" AND year_of = "'.$year_of.'"';
 			$fixedCostInsert = $this->db->select($checkQuery);
 			if ($fixedCostInsert) {
-				$msg = " <span class='text-success'>Fixed Cost For Month ".$this->GetMonthName($month_of).", ".$year_of." already been added.</span> ";
+				$msg = " <span class='text-danger'>Fixed Cost For Month ".$this->GetMonthName($month_of).", ".$year_of." already been added.</span> ";
 				return $msg;
 			}else{
-				$query = "INSERT INTO mms_fixed_cost(home_rent, electricity_bill, internet_bill, dust_bill, house_maid_bill, gas_bill, cable_line_bill,service_bill,extra_bill,extra_desc,month_of,year_of,entry_by) VALUES('$HomeRent','$ElectricityBill','$InternetBill','$DustBill','$HouseMaidBill','$GasBill','$CableLineBill','$ServiceBill','$ExtraBill','$ExtraDesc','$month_of','$year_of')";
+				$query = "INSERT INTO mms_fixed_cost(home_rent, electricity_bill, internet_bill, dust_bill, house_maid_bill, gas_bill, cable_line_bill,service_bill,extra_bill,extra_desc,month_of,year_of,entry_by,approve_by) VALUES('$HomeRent','$ElectricityBill','$InternetBill','$DustBill','$HouseMaidBill','$GasBill','$CableLineBill','$ServiceBill','$ExtraBill','$ExtraDesc','$month_of','$year_of','".Session::get("adminId")."','".Session::get("adminId")."')";
 		    	
 		    	$fixedCostInsert = $this->db->insert($query);
 				
@@ -64,7 +65,7 @@ class Fixedcost{
 					$msg = " <span class='text-success'>Fixed Cost Insert Sucessfully For Month ".$this->GetMonthName($month_of).", ".$year_of."</span> ";
 					return $msg;
 				}else{
-					$msg = " <span class='error'>Fixed Cost Unable To Insert Sucessfully </span> ";
+					$msg = " <span class='text-danger'>Fixed Cost Unable To Insert Sucessfully </span> ";
 					return $msg;
 				}
 			}
@@ -132,5 +133,9 @@ class Fixedcost{
 }
 
 ?>
+
+
+
+
 
 

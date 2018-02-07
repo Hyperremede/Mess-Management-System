@@ -61,8 +61,8 @@
                                         <div class="col-lg-6">
                                            <select class="form-control" name="user_type" id="user_type">
                                                 <option>--Select status--</option>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
+                                                <option value="1">Member</option>
+                                                <option value="2">Manager</option>
                                             </select>
                                         </div>
                                     </div>
