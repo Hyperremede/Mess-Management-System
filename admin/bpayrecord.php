@@ -151,7 +151,8 @@
             url: '../classes/recordHandler.php',
             dataType: "json",
             type: 'POST',
-            cache : false,
+            async: false,
+            cache: false,
             data: {
                 borderid : borderid,
                 month_of : month_of,
