@@ -40,33 +40,23 @@
                         <div class="panel-body">
 
                             <div class="form">
-                                <form class="cmxform form-horizontal " id="signupForm"  action="" novalidate="novalidate" method="post">
-                                    
-                                    <div class="form-group ">
-                                        <label for="border" class="control-label col-lg-3">Select Border</label>
-                                        <div class="col-lg-6">
-                                           <select class="form-control" name="border" id="border">
-                                                <option>--Select Border--</option>
-                                                <?php 
-                                                    if(isset($getAllBorder)){
-                                                        foreach ($getAllBorder as $key => $value) {
-                                                            echo  '<option value="'.$value['id'].'">'.$value['full_name'].'</option>';
-                                                        }
+                                <div class="form-group ">
+                                    <label for="border" class="control-label col-lg-3">Select Border</label>
+                                    <div class="col-lg-6">
+                                       <select class="form-control" name="border" id="border">
+                                            <option>--Select Border--</option>
+                                            <?php 
+                                                if(isset($getAllBorder)){
+                                                    foreach ($getAllBorder as $key => $value) {
+                                                        echo  '<option value="'.$value['id'].'">'.$value['full_name'].'</option>';
                                                     }
-                                                    
-                                                ?>
-                                            </select>
-                                        </div>
+                                                }
+                                                
+                                            ?>
+                                        </select>
                                     </div>
-
-                                    <div class="form-group ">
-                                        <label for="amount" class="control-label col-lg-3">Amount</label>
-                                        <div class="col-lg-6">
-                                            <input class="form-control" min="1" id="amount" name="amount" type="number">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group ">
+                                </div>
+                                <div class="form-group ">
                                         <label for="month_of" class="control-label col-lg-3">Month Of</label>
                                         <div class="col-lg-6">
                                            <select class="form-control" name="month_of" id="month_of">
@@ -102,15 +92,36 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-3 col-lg-6">
-                                            <button class="btn btn-primary" type="submit" name="submit">Save</button>
-                                            <button class="btn btn-default" type="button">Cancel</button>
-                                        </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-3 col-lg-6">
+                                        <button class="btn btn-primary" type="button" name="button" id="searchPayment" onclick="queryDB()">Search</button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                            
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table table-striped b-t b-light">
+                            <thead>
+                              <tr>
+                                
+                                <th>Project</th>
+                                <th>Task</th>
+                                <th>Date</th>
+                                <th style="width:30px;"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Videodown</td>
+                                <td>4c</td>
+                                <td>Jul 1, 2013</td>
+                                <td>
+                                  <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
                     </section>
                 </div>
@@ -129,13 +140,32 @@
 </section>
 <?php include 'inc/footer.php'; ?>
 <script type="text/javascript">
-    var numberInput = document.getElementById('amount');
+    function queryDB(request, response) {
 
-    numberInput.onkeydown = function(e) {
-        if(!((e.keyCode > 95 && e.keyCode < 106)
-          || (e.keyCode > 47 && e.keyCode < 58) 
-          || e.keyCode == 8)) {
-            return false;
-        }
+        var borderid = $("#border").val();
+        var month_of = $("#month_of").val();
+        var year_of = $("#year_of").val();
+
+
+        $.ajax({
+            url: '../classes/recordHandler.php',
+            dataType: "json",
+            type: 'POST',
+            cache : false,
+            data: {
+                borderid : borderid,
+                month_of : month_of,
+                year_of : year_of
+            },
+            success: function (data) {
+
+                console.log(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
     }
 </script>

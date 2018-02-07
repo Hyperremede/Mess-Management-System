@@ -39,7 +39,8 @@
                         <span>Border Payable</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="bpay.php">Pay</a></li>
+                        <li><a href="bpay.php">Payment</a></li>
+                        <li><a href="bpayrecord.php">Payment Record</a></li>
                     </ul>
                 </li>
             </ul>            </div>

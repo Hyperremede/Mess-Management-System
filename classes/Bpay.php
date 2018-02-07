@@ -25,26 +25,26 @@ class Bpay{
 	public function BpayInsert($data){
 
 		if(Session::get("adminlogin")){
-			
-			$title 		= mysqli_real_escape_string($this->db->link, $data['border']);
-			$descp 		= mysqli_real_escape_string($this->db->link, $data['amount']);
-			$month_of 	= mysqli_real_escape_string($this->db->link, $data['month_of']);
-			$year_of 	= mysqli_real_escape_string($this->db->link, $data['year_of']);
+
+			$border 		= mysqli_real_escape_string($this->db->link, $data['border']);
+			$amount 		= mysqli_real_escape_string($this->db->link, $data['amount']);
+			$month_of 		= mysqli_real_escape_string($this->db->link, $data['month_of']);
+			$year_of 		= mysqli_real_escape_string($this->db->link, $data['year_of']);
 
 
-			if ($title == "" || $descp == "" || $amount == "" || $month_of == "" || $year_of == "" ) {
+			if ($border == "" || $amount == "" || $amount == "" || $month_of == "" || $year_of == "" ) {
 		    	$msg = "<span class='text-danger' >Fields must not be empty !</span>";
 				return $msg;
 				
-			    }else{
+			}else{
 		    	
-		    	$query = " INSERT INTO mms_reguler_cost(title, descp, amount,entry_by, approved_by,month_of, year_of) VALUES('$title','$descp','$amount','".Session::get("adminId")."','".Session::get("adminId")."','$month_of','$year_of')";
+		    	$query = " INSERT INTO mms_border_payable(border_id, paid_amount, month_of,year_of,entry_by) VALUES('$border','$amount','$month_of','$year_of','".Session::get("adminId")."')";
 		    	$regCostInsert = $this->db->insert($query);
 				if ($regCostInsert) {
-					$msg = " <span class='text-success'>Regular Cost Insarted Sucessfully</span> ";
+					$msg = " <span class='text-success'>Payment Insarted Sucessfully</span> ";
 					return $msg;
 				}else{
-					$msg = " <span class='error'>Regular Cost  Not Insarted </span> ";
+					$msg = " <span class='text-danger'>Payment Not Insarted </span> ";
 					return $msg;
 				}
 		    }
@@ -60,8 +60,21 @@ class Bpay{
 			$query = "SELECT id,full_name FROM mms_borders WHERE id = '".Session::get("adminId")."' ORDER BY id DESC ";
 		}else if(Session::get("adminType") == 2){
 			$query = "SELECT id,full_name FROM mms_borders ORDER BY id DESC ";
+		}else{
+			$query = "SELECT id,full_name FROM mms_borders ORDER BY id DESC ";
 		}
 		
+		$result = $this->db->select($query);
+		return $result;
+	}
+
+	public function getAllPaymentRecord($borderid,$month_of,$year_of){
+		
+		$border_id 	= mysqli_real_escape_string($this->db->link, $borderid);
+		$month 		= mysqli_real_escape_string($this->db->link, $month_of);
+		$year 		= mysqli_real_escape_string($this->db->link, $year_of);
+
+		$query = "SELECT * FROM mms_border_payable WHERE border_id = '".$border_id."' AND month_of = '".$month."' AND year_of =  '".$year."' ORDER BY id ASC";
 		$result = $this->db->select($query);
 		return $result;
 	}
@@ -83,27 +96,27 @@ class Bpay{
 	    	$msg = "<span class='text-danger'>Fields must not be empty !</span>";
 			return $msg;
 			
-		    }else{
+	    }else{
 
-				    	$query = "UPDATE mms_reguler_cost
-				    				SET
-				    				full_name = '$title',
-				    				user_name = '$descp',
-				    				amount = '$amount',
-				    				entry_by = '".Session::get("adminId")."',
-				    				approved_by = '".Session::get("adminId")."',
-				    				month_of = '$month_of',
-				    				year_of = '$year_of'
-				    				WHERE id= '$id' ";
-				    	$updated_row = $this->db->update($query);
-						if ($updated_row) {
-						$msg = " <span class='text-success'>Border Updated Sucessfully</span> ";
-							return $msg;
-						}else{
-							$msg = " <span class='text-danger'>product Not Updated ! </span> ";
-							return $msg;
-							}
-		     	 }
+	    	$query = "UPDATE mms_reguler_cost
+	    				SET
+	    				full_name = '$title',
+	    				user_name = '$descp',
+	    				amount = '$amount',
+	    				entry_by = '".Session::get("adminId")."',
+	    				approved_by = '".Session::get("adminId")."',
+	    				month_of = '$month_of',
+	    				year_of = '$year_of'
+	    				WHERE id= '$id' ";
+	    	$updated_row = $this->db->update($query);
+			if ($updated_row) {
+			$msg = " <span class='text-success'>Border Updated Sucessfully</span> ";
+				return $msg;
+			}else{
+				$msg = " <span class='text-danger'>product Not Updated ! </span> ";
+				return $msg;
+			}
+	    }
 
 	}
 
@@ -133,4 +146,5 @@ class Bpay{
 }
 
 ?>
+
 
