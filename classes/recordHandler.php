@@ -1,6 +1,6 @@
-<?php
-
-include 'Bpay.php';
+<?php 
+$filepath = realpath(dirname(__FILE__));
+include_once ($filepath.'/../classes/Bpay.php'); 
 
 if(isset( $_POST['borderid'] )) {
 		

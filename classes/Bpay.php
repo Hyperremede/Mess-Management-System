@@ -73,9 +73,17 @@ class Bpay{
 		$month 		= mysqli_real_escape_string($this->db->link, $month_of);
 		$year 		= mysqli_real_escape_string($this->db->link, $year_of);
 
-		$query = "SELECT * FROM mms_border_payable WHERE border_id = '3' AND month_of = '".$month."' AND year_of =  '".$year."' ORDER BY id ASC";
+		$query = "SELECT * FROM mms_border_payable WHERE border_id = '".$borderid."' AND month_of = '".$month."' AND year_of =  '".$year."' ORDER BY id ASC";
+		
 		$result = $this->db->select($query);
-		return $result;
+		$resArray = array();
+
+		if($result){
+			while($data = $result->fetch_assoc()){
+				array_push($resArray, $data);
+			}
+		}
+		return $resArray;
 	}
 
 

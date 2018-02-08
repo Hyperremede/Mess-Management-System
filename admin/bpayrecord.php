@@ -28,39 +28,38 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                             <?php
-                                    if (isset($insertregBpay)) {
-                                       echo $insertregBpay;
-                                    }
-                                ?> 
-                            <span class="tools pull-right">
+                             <p id="totalAmount"></p>
+                            <!-- <span class="tools pull-right">
                                 <a class="fa fa-chevron-down" href="javascript:;"></a>
                                 <a class="fa fa-cog" href="javascript:;"></a>
                                 <a class="fa fa-times" href="javascript:;"></a>
-                             </span>
+                             </span> -->
                         </header>
                         <div class="panel-body">
                             
                             <div class="form">
-                                <div class="form-group ">
-                                    <label for="border" class="control-label col-lg-2">Select Border</label>
-                                    <div class="col-lg-2">
-                                       <select class="form-control" name="border" id="border">
-                                            <option>--Select Border--</option>
-                                            <?php 
-                                                if(isset($getAllBorder)){
-                                                    foreach ($getAllBorder as $key => $value) {
-                                                        echo  '<option value="'.$value['id'].'">'.$value['full_name'].'</option>';
+                                <div class="col-lg-4">
+                                    <div class="form-group ">
+                                        <label for="border" class="control-label col-lg-12">Select Border</label>
+                                        <div class="col-lg-12">
+                                           <select class="form-control" name="border" id="border">
+                                                <option>--Select Border--</option>
+                                                <?php 
+                                                    if(isset($getAllBorder)){
+                                                        foreach ($getAllBorder as $key => $value) {
+                                                            echo  '<option value="'.$value['id'].'">'.$value['full_name'].'</option>';
+                                                        }
                                                     }
-                                                }
-                                                
-                                            ?>
-                                        </select>
+                                                    
+                                                ?>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group ">
-                                        <label for="month_of" class="control-label col-lg-2">Month Of</label>
-                                        <div class="col-lg-2">
+                                <div class="col-lg-4">
+                                    <div class="form-group ">
+                                        <label for="month_of" class="control-label col-lg-12">Month Of</label>
+                                        <div class="col-lg-12">
                                            <select class="form-control" name="month_of" id="month_of">
                                                 <option>--Select Month--</option>
                                                 <option value="1"  <?php echo (date('m') == '01') ? 'selected':'' ?>>January</option>
@@ -78,10 +77,11 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+                                </div>
+                                <div class="col-lg-4">
                                     <div class="form-group ">
-                                        <label for="year_of" class="control-label col-lg-2">Year Of</label>
-                                        <div class="col-lg-2">
+                                        <label for="year_of" class="control-label col-lg-12">Year Of</label>
+                                        <div class="col-lg-12">
                                            <select class="form-control" name="year_of" id="year_of">
                                                 <option>--Select status--</option>
                                                 <option value="2018" <?php echo (date('Y') == '2018') ? 'selected':'' ?>>2018</option>
@@ -93,10 +93,12 @@
                                             </select>
                                         </div>
                                     </div>
-
-                                <div class="form-group">
-                                    <div class="col-lg-offset-2 col-lg-10">
-                                        <button class="btn btn-primary btn-block searchPayment" type="button" name="button" id="searchPayment" onclick="queryDB()">Search</button>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="col-md-3 offset-md-3">
+                                            <button class="btn btn-primary btn-block searchPayment" type="button" name="button" id="searchPayment" onclick="queryDB()">Search</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -107,21 +109,13 @@
                             <thead>
                               <tr>
                                 
-                                <th>Project</th>
-                                <th>Task</th>
-                                <th>Date</th>
-                                <th style="width:30px;"></th>
+                                <th>Sl.</th>
+                                <th>Payment Amount</th>
+                                <th>Payment Date</th>
+                                <th style="width:30px;">####</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <td>Videodown</td>
-                                <td>4c</td>
-                                <td>Jul 1, 2013</td>
-                                <td>
-                                  <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                                </td>
-                              </tr>
+                            <tbody id="recrodDiv">
                             </tbody>
                           </table>
                         </div>
@@ -147,6 +141,7 @@
         var borderid = $("#border").val();
         var month_of = $("#month_of").val();
         var year_of = $("#year_of").val();
+        var totalAmount = 0;
 
 
         $.ajax({
@@ -162,7 +157,30 @@
             },
             success: function (data) {
 
-                console.log(data);
+                
+                if(data.paymentRecords.length > 0){
+                    $.each(data.paymentRecords, function(k,v){
+                        totalAmount = parseInt(totalAmount) + parseInt(v.paid_amount);
+                        var design = '<tr>';
+                            design += '<td>'+(parseInt(k)+1)+'</td>';
+                            design += '<td>'+v.paid_amount+'</td>';
+                            design += '<td>'+moment(v.entry_date).format('LLLL');+'</td>';
+                            design += '<td><a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a></td>';
+                            design += '</tr>';
+                        $("#recrodDiv").append(design);
+                    });
+
+                    $("#totalAmount").html('<span><b>Total Paid Amount :</b> '+totalAmount+'</span>');
+                    
+                }else{
+                    var design = '<tr>';
+                        design += '<td>No Record Found</td>';
+                        design += '</tr>';
+                    $("#recrodDiv").append(design);
+                }
+
+
+                
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR);
