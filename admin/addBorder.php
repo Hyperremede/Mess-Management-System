@@ -73,12 +73,6 @@
                                             <input class="form-control " id="join_date" name="join_date" type="date">
                                         </div>
                                     </div>
-                                    <div class="form-group ">
-                                        <label for="last_login" class="control-label col-lg-3">Last Join</label>
-                                        <div class="col-lg-6">
-                                            <input class="form-control " id="last_login" name="last_login" type="date">
-                                        </div>
-                                    </div>
 
                                     <div class="form-group ">
                                         <label for="is_active" class="control-label col-lg-3">Is Active</label>
