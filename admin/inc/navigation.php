@@ -54,6 +54,24 @@
                     </ul>
                 </li>
 
+                <li class="sub-menu">
+                    <a class="<?php if($urlName == 'manageMeal.php' || $urlName == 'meal.php'){ echo 'active';} ?>" href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Meal</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="<?php if($urlName == 'meal.php'){ echo 'active'; } ?>" href="meal.php">Regular Meal</a></li>
+                        <li><a class="<?php if($urlName == 'manageMeal.php'){ echo 'active'; } ?>" href="manageMeal.php">Manage Meal</a></li>
+                        <?php 
+                            if($userType == 2){
+                            ?>
+                                <li><a class="<?php if($urlName == 'mealRecord.php'){ echo 'active'; } ?>" href="mealRecord.php">Meal Report</a></li>
+                            <?php
+                            }
+                        ?>
+                    </ul>
+                </li>
+
                 <li>
                     <a class="<?php if($urlName == 'bpay.php' || $urlName == 'bpayrecord.php'){ echo 'active';} ?>" href="javascript:;">
                         <i class="fa fa-book"></i>
@@ -64,7 +82,8 @@
                         <li><a class="<?php if($urlName == 'bpayrecord.php'){ echo 'active'; } ?>" href="bpayrecord.php">Payment Record</a></li>
                     </ul>
                 </li>
-            </ul>            </div>
+            </ul>            
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>

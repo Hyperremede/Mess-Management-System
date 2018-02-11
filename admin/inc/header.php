@@ -25,6 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/morris.css" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="css/monthly.css">
+
 <!-- //calendar -->
 <!-- //font-awesome icons -->
 <script src="js/jquery2.0.3.min.js"></script>

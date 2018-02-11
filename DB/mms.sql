@@ -132,6 +132,27 @@ CREATE TABLE `mms`.`mms_border_payable` (
 ALTER TABLE `mms`.`mms_borders` 
 ADD COLUMN `carry_forward_balance` INT NULL DEFAULT 0 AFTER `last_login`;
 
+-- Update @ 11-02-2018
+
+
+CREATE TABLE `mms`.`mms_meal` (
+  `meal_id` INT NOT NULL AUTO_INCREMENT,
+  `boarder_id` INT NULL,
+  `total_meal` INT NULL,
+  `note` VARCHAR(200) NULL,
+  `date` DATETIME NULL,
+  `entry_by` INT NULL,
+  `update_by` INT NULL,
+  `approve_by` INT NULL,
+  PRIMARY KEY (`meal_id`),
+  INDEX `meal_fk_boarder_id_idx` (`boarder_id` ASC),
+  CONSTRAINT `meal_fk_boarder_id`
+    FOREIGN KEY (`boarder_id`)
+    REFERENCES `mms`.`mms_borders` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
 --
 -- Dumping data for table `mms_tbl_admin`
 --

@@ -264,7 +264,7 @@ a.logo span {
     float:left;
 }
 .notify-row {
-    float:left;
+    float:left !important;
     margin-top:23px;
     margin-left:25px;
 }
